@@ -1,9 +1,20 @@
-import s from "../ImageModal/ImageModal.module.css";
+import { Image } from "../App/App.types";
+import s from "./ImageModal.module.css";
 import Modal from "react-modal";
+
+interface ImageModalProp {
+  photo: Image | null;
+  isOpen: boolean;
+  onRequestClose: () => void;
+}
 
 Modal.setAppElement("#root");
 
-const ImageModal = ({ isOpen, onRequestClose, photo }) => {
+const ImageModal: React.FC<ImageModalProp> = ({
+  isOpen,
+  onRequestClose,
+  photo,
+}) => {
   if (!photo) return null;
   return (
     <div className={s.div}>
@@ -13,12 +24,14 @@ const ImageModal = ({ isOpen, onRequestClose, photo }) => {
         className={s.modal}
         overlayClassName={s.overlay}
       >
-        <img src={photo.urls.regular} alt={photo.alt_description} />
+        <img src={photo.urls.regular} alt={photo.alt_description || "Image"} />
         <button className={s.btn} onClick={onRequestClose}>
           X
         </button>
         <p className={s.caption}>
-          {photo.description || photo.alt_description}
+          {photo.description ||
+            photo.alt_description ||
+            "No description available"}
         </p>
       </Modal>
     </div>

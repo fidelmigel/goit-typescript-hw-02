@@ -8,7 +8,7 @@ axios.defaults.params = {
   X_Per_Page: 15,
 };
 
-export const getPhotos = async (query, page) => {
+export const getPhotos = async (query: string, page: number) => {
   const { data } = await axios.get(`search?query=${query}&page=${page}`);
 
   return data;
