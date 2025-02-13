@@ -1,0 +1,52 @@
+.div {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin-top: 40px;
+  margin-bottom: 40px;
+}
+
+.label {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.input,
+.btn {
+  height: 40px;
+  font-size: 20px;
+}
+
+.input {
+  width: 540px;
+  border: 1px solid transparent;
+  border-radius: 8px 0 0 8px;
+  background-color: #131212;
+  color: white;
+}
+
+.input:focus {
+  border: 1px solid #646cff;
+  outline: none;
+}
+
+.btn {
+  border: 1px solid #131212;
+  border-radius: 0 8px 8px 0;
+  padding: 0 1.2em;
+  background-color: #131212;
+  color: white;
+  cursor: pointer;
+  transition: border-color 0.25s;
+  font-size: 20px;
+}
+
+.btn:hover {
+  border-color: #646cff;
+}
+
+.btn:focus {
+  outline: 4px auto -webkit-focus-ring-color;
+}
